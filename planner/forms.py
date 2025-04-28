@@ -72,16 +72,24 @@ class UserProfileForm(forms.ModelForm):
         widget=forms.EmailInput(attrs={'class': 'form-control'})
     )
     budget_limit = forms.DecimalField(
-        label='Бюджет на день (руб)',
+        label='Бюджет на один приём пищи (руб)',
         required=False,
         widget=forms.NumberInput(attrs={
             'class': 'form-control',
         })
     )
+    avatar = forms.ImageField(
+        label='Аватар',
+        required=False,
+        widget=forms.FileInput(attrs={
+            'class': 'form-control d-none',
+            'id': 'avatar-upload'
+        })
+    )
 
     class Meta:
         model = UserProfile
-        fields = ['budget_limit']
+        fields = ['budget_limit', 'avatar']
 
     def __init__(self, *args, **kwargs):
         user = kwargs.pop('user')

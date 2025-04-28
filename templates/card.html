@@ -62,7 +62,7 @@
                                         <ul class="list-group list-group-flush mb-3 flex-grow-1">
                                             {% for ingredient in ingredients %}
                                             <li class="list-group-item">
-                                                <small>{{ ingredient.ingredient.name }} ({{ ingredient.quantity }}{{ ingredient.ingredient.get_unit_display }})</small>
+                                                <small>{{ ingredient.ingredient.name }} ({{ ingredient.quantity|floatformat }} {{ ingredient.unit }})</small>
                                             </li>
                                             {% endfor %}
                                         </ul>

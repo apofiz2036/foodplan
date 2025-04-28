@@ -65,6 +65,12 @@ class UserProfile(models.Model):
         blank=True,
         verbose_name='Дата окончания подписки'
     )
+    avatar = models.ImageField(
+        verbose_name='Аватар',
+        upload_to='avatars/',
+        null=True,
+        blank=True
+    )
 
     def __str__(self):
         return self.user.username
